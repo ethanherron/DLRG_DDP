@@ -15,6 +15,6 @@
 
 # LOAD MODULES, INSERT CODE, AND RUN YOUR PROGRAMS HERE
 module load miniconda3
-source activate dlrg_ddp
+source activate dlrg
 
-python ddp.py
+python ddp.py -g 4

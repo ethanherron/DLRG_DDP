@@ -6,13 +6,11 @@ import torchvision
 import torchvision.transforms as transforms
 from torchvision.datasets import CIFAR10
 import torch.nn.functional as F
-from torchmetrics.functional import accuracy
 from pytorch_lightning import LightningModule, Trainer
 import time
 
 
-# Global variables
-PATH_DATASETS = '/data/cifar10'
+
 
 
 def main(args):
@@ -29,7 +27,7 @@ def main(args):
         ]
     )
 
-    train_dataset = CIFAR10(PATH_DATASETS, train=True, transform=train_transforms, download=False)
+    train_dataset = CIFAR10('./data', train=True, transform=train_transforms, download=True)
     
     train_loader = torch.utils.data.DataLoader(train_dataset, 
                                                batch_size=args.batch_size, 
